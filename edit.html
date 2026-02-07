@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Journal — Edit Entry</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header glass">
+    <div class="header-left">
+      <h1 class="logo-title">MY JOURNAL</h1>
+      <p class="site-desc small">Write and format your entry</p>
+    </div>
+    <div class="header-right">
+      <a href="home.html" class="btn">Back</a>
+    </div>
+  </header>
+
+  <main class="editor-page glass" role="main">
+    <input id="entry-title" class="editor-title" placeholder="Title" />
+    <div class="editor-toolbar" role="toolbar" aria-label="Formatting toolbar">
+      <button data-cmd="bold"><b>B</b></button>
+      <button data-cmd="italic"><i>I</i></button>
+      <button data-cmd="underline"><u>U</u></button>
+      <button data-cmd="insertOrderedList">1.</button>
+    </div>
+
+    <div id="entry-content" class="entry-editor" contenteditable="true" spellcheck="true" aria-label="Entry content"></div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button id="save-entry" class="btn primary">Save</button>
+      <button id="cancel-entry" class="btn">Cancel</button>
+    </div>
+  </main>
+
+  <footer class="app-footer">Celma - 2026</footer>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-messaging-compat.js"></script>
+
+  <script src="main.js"></script>
+</body>
+</html>

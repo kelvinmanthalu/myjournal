@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Journal — Mood Tracker</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body class="page-mood">
+  <header class="app-header glass">
+    <div class="header-left">
+      <h1 class="logo-title small">MY JOURNAL</h1>
+      <p class="site-desc small">Track your mood and emotional journey</p>
+    </div>
+    <div class="header-right">
+      <button id="hamburger-btn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="side-menu" class="side-menu hidden glass" aria-hidden="true">
+    <div class="menu-header"><h3>Menu</h3></div>
+    <ul class="menu-list">
+      <li><a href="home.html" class="menu-item">Home</a></li>
+      <li><a href="mood.html" class="menu-item">Mood Tracker</a></li>
+      <li><a href="settings.html" class="menu-item">Settings</a></li>
+      <li><button id="signout-btn" class="menu-item danger">Sign out</button></li>
+    </ul>
+  </nav>
+
+  <main class="app-main">
+    <section id="view-mood" class="view active">
+      <div class="welcome glass">
+        <h2>Mood Tracker</h2>
+        <p class="sub">Record your daily mood to track emotional trends and patterns</p>
+      </div>
+
+      <!-- Mood Analytics Dashboard -->
+      <div class="glass">
+        <h3>Your Mood Analytics</h3>
+        <div class="mood-analytics">
+          <div class="mood-stat">
+            <div class="mood-stat-value" id="today-mood">-</div>
+            <div class="mood-stat-label">Today's Mood</div>
+          </div>
+          <div class="mood-stat">
+            <div class="mood-stat-value" id="week-avg">-</div>
+            <div class="mood-stat-label">Weekly Average</div>
+          </div>
+          <div class="mood-stat">
+            <div class="mood-stat-value" id="total-entries">0</div>
+            <div class="mood-stat-label">Total Entries</div>
+          </div>
+          <div class="mood-stat">
+            <div class="mood-stat-value" id="streak-days">0</div>
+            <div class="mood-stat-label">Day Streak</div>
+          </div>
+        </div>
+
+        <!-- Mood Chart -->
+        <div style="margin-top: 20px;">
+          <h4 style="margin: 0 0 12px 0; color: var(--accent-2);">Last 7 Days</h4>
+          <div class="mood-chart" id="mood-chart"></div>
+        </div>
+      </div>
+
+      <!-- Mood Form -->
+      <div class="mood-form glass">
+        <h3 style="margin-top: 0;">Record Your Mood</h3>
+        <div class="mood-options" id="mood-options">
+          <button class="mood-btn" data-emoji="😄" data-value="5">
+            <span class="mood-emoji">😄</span>
+            <span class="mood-label">Excellent</span>
+          </button>
+          <button class="mood-btn" data-emoji="🙂" data-value="4">
+            <span class="mood-emoji">🙂</span>
+            <span class="mood-label">Good</span>
+          </button>
+          <button class="mood-btn" data-emoji="😐" data-value="3">
+            <span class="mood-emoji">😐</span>
+            <span class="mood-label">Okay</span>
+          </button>
+          <button class="mood-btn" data-emoji="😕" data-value="2">
+            <span class="mood-emoji">😕</span>
+            <span class="mood-label">Bad</span>
+          </button>
+          <button class="mood-btn" data-emoji="😔" data-value="1">
+            <span class="mood-emoji">😔</span>
+            <span class="mood-label">Terrible</span>
+          </button>
+        </div>
+        <textarea id="mood-desc" placeholder="How are you feeling? What's on your mind?"></textarea>
+        <div class="modal-actions" style="margin-top: 12px;">
+          <button id="save-mood" class="btn primary">Record mood</button>
+        </div>
+      </div>
+
+      <!-- Mood History -->
+      <section class="entries-list glass" id="moods-container">
+        <h3>Mood History</h3>
+        <div id="moods-list" class="entries-scroll"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="app-footer">Celma - 2026</footer>
+
+  <!-- Firebase SDKs (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-messaging-compat.js"></script>
+
+  <script src="main.js"></script>
+</body>
+</html>

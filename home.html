@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Journal — Home</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body class="page-app">
+  <!-- Splash Screen (hidden by default) -->
+  <div id="splash-screen" class="splash-screen hidden">
+    <div class="splash-logo">📔</div>
+    <h1 class="splash-text">MY JOURNAL</h1>
+    <div class="splash-bar">
+      <div class="splash-bar-fill"></div>
+    </div>
+    <p class="splash-subtitle">Your personal reflection space</p>
+  </div>
+
+  <header class="app-header glass">
+    <div class="header-left">
+      <h1 class="logo-title small">MY JOURNAL</h1>
+      <p class="site-desc small">A calm and focused place to write everyday</p>
+    </div>
+    <div class="header-right">
+      <button id="hamburger-btn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="side-menu" class="side-menu hidden glass" aria-hidden="true">
+    <div class="menu-header"><h3>Menu</h3></div>
+    <ul class="menu-list">
+      <li><a href="home.html" class="menu-item">Home</a></li>
+      <li><a href="mood.html" class="menu-item">Mood Tracker</a></li>
+      <li><a href="settings.html" class="menu-item">Settings</a></li>
+      <li><button id="signout-btn" class="menu-item danger">Sign out</button></li>
+    </ul>
+  </nav>
+
+  <main class="app-main">
+    <section class="view active">
+      <div class="welcome glass">
+        <h2 id="welcome-title">Welcome</h2>
+        <p class="sub">Capture your day - thoughts, wins, lessons and mood that tells your story</p>
+        <div class="search-wrap">
+          <input id="search-input" type="search" placeholder="Search entries by title or content..." />
+        </div>
+      </div>
+
+      <section class="entries-list glass" id="entries-container">
+        <h3>Your entries</h3>
+        <div id="entries-list" class="entries-scroll"></div>
+      </section>
+    </section>
+  </main>
+
+  <button id="add-entry-btn" class="fab" aria-label="Add entry">+</button>
+
+  <div id="confirm-modal" class="modal hidden">
+    <div class="modal-card small glass">
+      <h3 id="confirm-title">Confirm</h3>
+      <p id="confirm-message"></p>
+      <div class="modal-actions">
+        <button id="confirm-ok" class="btn danger">Yes</button>
+        <button id="confirm-cancel" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">Celma - 2026</footer>
+
+  <!-- Firebase SDKs (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-messaging-compat.js"></script>
+
+  <script src="main.js"></script>
+</body>
+</html>

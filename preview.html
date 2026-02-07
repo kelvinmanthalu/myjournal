@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Journal — Preview Entry</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header glass">
+    <div class="header-left">
+      <h1 class="logo-title small">MY JOURNAL</h1>
+      <p class="site-desc small">Preview your entry</p>
+    </div>
+    <div class="header-right">
+      <a id="edit-link" class="btn">Edit</a>
+      <a href="home.html" class="btn">Back</a>
+    </div>
+  </header>
+
+  <main class="editor-page glass">
+    <h2 id="preview-title"></h2>
+    <div id="preview-content" class="preview-content"></div>
+    <p class="entry-meta" id="preview-meta"></p>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button id="delete-entry" class="btn danger">Delete</button>
+    </div>
+  </main>
+
+  <footer class="app-footer">Celma - 2026</footer>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-messaging-compat.js"></script>
+
+  <script src="main.js"></script>
+</body>
+</html>

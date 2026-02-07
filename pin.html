@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Journal — Unlock</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="pin-screen">
+    <div class="pin-container">
+      <div class="pin-header glass">
+        <div class="pin-icon">🔐</div>
+        <h2>Unlock My Journal</h2>
+        <p style="color: var(--muted); font-size: 13px; margin: 8px 0 0 0;">Enter your PIN to continue</p>
+      </div>
+
+      <div class="glass">
+        <div class="pin-input-group" id="pin-group">
+          <input type="password" class="pin-input" maxlength="1" inputmode="numeric" />
+          <input type="password" class="pin-input" maxlength="1" inputmode="numeric" />
+          <input type="password" class="pin-input" maxlength="1" inputmode="numeric" />
+          <input type="password" class="pin-input" maxlength="1" inputmode="numeric" />
+        </div>
+
+        <div id="pin-error" style="color: var(--danger); text-align: center; font-size: 13px; margin-bottom: 12px; display: none;"></div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+          <a id="pin-forgot" href="#" class="pin-forgot">Forgot PIN?</a>
+          <span style="color: var(--muted); font-size: 12px;" id="pin-attempts">Attempts: <span id="pin-count">3</span></span>
+        </div>
+      </div>
+
+      <div class="glass" style="text-align: center; color: var(--muted); font-size: 13px;">
+        <p style="margin: 0;">Your account is locked for security.</p>
+        <p style="margin: 6px 0 0 0;">Use your PIN to unlock and continue.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forgot PIN Modal -->
+  <div id="forgot-pin-modal" class="modal hidden">
+    <div class="modal-card small glass">
+      <h3 style="color: var(--accent); margin: 0 0 12px 0;">Reset PIN</h3>
+      <p style="color: var(--muted); margin: 0 0 16px 0;">Enter your account password to reset your PIN</p>
+      <input id="forgot-pin-password" type="password" placeholder="Enter your password" />
+      <div class="modal-actions" style="margin-top: 16px;">
+        <button id="forgot-pin-cancel" class="btn">Cancel</button>
+        <button id="forgot-pin-confirm" class="btn primary">Reset PIN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-messaging-compat.js"></script>
+
+  <script src="main.js"></script>
+</body>
+</html>

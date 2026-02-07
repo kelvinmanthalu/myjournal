@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Journal — Settings</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body class="page-settings">
+  <header class="app-header glass">
+    <div class="header-left">
+      <h1 class="logo-title small">MY JOURNAL</h1>
+      <p class="site-desc small">Manage your account and preferences</p>
+    </div>
+    <div class="header-right">
+      <a href="home.html" class="btn">Back</a>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="view active">
+      <div class="welcome glass">
+        <h2>Settings & Security</h2>
+        <p class="sub">Manage your account, security, and preferences</p>
+      </div>
+
+      <!-- Account Settings -->
+      <form id="settings-form" class="settings-form glass">
+        <h3 style="color: var(--accent); margin-top: 0;">Account Information</h3>
+        
+        <label class="input-label">Username</label>
+        <input id="settings-username" type="text" />
+        
+        <label class="input-label">Email</label>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <input id="settings-email" type="email" style="flex: 1;" />
+          <button id="change-email-btn" type="button" class="btn small">Change</button>
+        </div>
+
+        <label class="input-label">New password</label>
+        <input id="settings-password" type="password" placeholder="Leave blank to keep current" />
+
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);">
+          <button id="save-settings" class="btn primary">Save changes</button>
+        </div>
+      </form>
+
+      <!-- PIN Security Section -->
+      <div class="glass">
+        <h3 style="color: var(--accent); margin-top: 0;">🔐 PIN Protection</h3>
+        <p style="color: var(--muted); font-size: 13px;">Set up a PIN to protect your journal when you step away</p>
+        
+        <div id="pin-setup" style="display: none;">
+          <label class="input-label">New 4-Digit PIN</label>
+          <input id="new-pin" type="password" placeholder="Enter 4 digits" maxlength="4" />
+          
+          <label class="input-label">Confirm PIN</label>
+          <input id="confirm-pin" type="password" placeholder="Confirm 4 digits" maxlength="4" />
+
+          <label class="input-label">Auto-lock after</label>
+          <select id="pin-lock-mode">
+            <option value="immediate">Immediately</option>
+            <option value="1min">1 minute of inactivity</option>
+            <option value="2min">2 minutes of inactivity</option>
+            <option value="5min">5 minutes of inactivity</option>
+            <option value="10min">10 minutes of inactivity</option>
+            <option value="30min">30 minutes of inactivity</option>
+          </select>
+
+          <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px;">
+            <button id="cancel-pin" type="button" class="btn">Cancel</button>
+            <button id="save-pin" type="button" class="btn primary">Enable PIN</button>
+          </div>
+        </div>
+
+        <div id="pin-status">
+          <p id="pin-status-text" style="color: var(--muted);"></p>
+          <div style="display:flex;gap:8px;margin-top:12px;">
+            <button id="disable-pin-btn" type="button" class="btn small danger" style="display:none;">Disable PIN</button>
+            <button id="enable-pin-btn" type="button" class="btn small primary">Setup PIN</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two-Factor Authentication -->
+      <div class="glass">
+        <h3 style="color: var(--accent); margin-top: 0;">🔑 Two-Factor Authentication (2FA)</h3>
+        <p style="color: var(--muted); font-size: 13px;">Add an extra layer of security to your account</p>
+        
+        <div id="twofa-status">
+          <p id="twofa-status-text" style="color: var(--muted); margin: 12px 0;">Not enabled</p>
+          <button id="enable-2fa-btn" type="button" class="btn primary">Enable 2FA</button>
+          <button id="disable-2fa-btn" type="button" class="btn danger small" style="display:none; margin-left:8px;">Disable 2FA</button>
+        </div>
+
+        <div id="twofa-setup" class="twofa-setup" style="display:none;">
+          <div class="twofa-step">
+            <span class="twofa-step-number">1</span>
+            <strong>Download an authenticator app</strong>
+            <p style="color: var(--muted); font-size: 13px; margin-top: 4px;">
+              Use Google Authenticator, Microsoft Authenticator, or Authy
+            </p>
+          </div>
+
+          <div class="twofa-step">
+            <span class="twofa-step-number">2</span>
+            <strong>Scan this QR code</strong>
+            <div class="twofa-qr" id="qr-code-container">
+              <p style="color: var(--muted); font-size: 13px;">QR code will appear here</p>
+            </div>
+          </div>
+
+          <div class="twofa-step">
+            <span class="twofa-step-number">3</span>
+            <strong>Manual entry (if needed)</strong>
+            <div class="twofa-secret" id="twofa-secret">
+              Your secret key will appear here
+            </div>
+          </div>
+
+          <div class="twofa-step">
+            <span class="twofa-step-number">4</span>
+            <strong>Enter the 6-digit code from your app</strong>
+            <input id="twofa-code" type="text" placeholder="000000" maxlength="6" style="width: 100%; padding: 10px; margin-top: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02);" />
+          </div>
+
+          <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);">
+            <button id="cancel-2fa" type="button" class="btn">Cancel</button>
+            <button id="confirm-2fa" type="button" class="btn primary">Verify & Enable</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backup Codes -->
+      <div class="glass" id="backup-codes-section" style="display:none;">
+        <h3 style="color: var(--accent); margin-top: 0;">📋 Backup Codes</h3>
+        <p style="color: var(--muted); font-size: 13px;">Save these codes in a safe place. You can use them to access your account if you lose access to your authenticator.</p>
+        <div id="backup-codes-list" style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 13px; margin: 12px 0; line-height: 1.8;"></div>
+        <button id="copy-backup-codes" type="button" class="btn small" style="margin-top: 8px;">Copy All Codes</button>
+      </div>
+
+      <!-- Danger Zone -->
+      <div class="glass" style="border-color: rgba(255, 107, 107, 0.2); background: rgba(255, 107, 107, 0.05);">
+        <h3 style="color: var(--danger); margin-top: 0;">⚠️ Danger Zone</h3>
+        <p style="color: var(--muted); font-size: 13px; margin-bottom: 16px;">These actions cannot be undone.</p>
+        <button id="delete-account" type="button" class="btn danger">Delete account permanently</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Email Change Modal -->
+  <div id="email-change-modal" class="modal hidden">
+    <div class="modal-card small glass">
+      <h3 style="color: var(--accent);">Change Email</h3>
+      <p style="color: var(--muted); font-size: 13px;">Enter your new email address. We'll send a verification code.</p>
+      <input id="new-email-input" type="email" placeholder="New email address" />
+      <div class="modal-actions">
+        <button id="email-change-cancel" class="btn">Cancel</button>
+        <button id="email-change-send" class="btn primary">Send Code</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Verification Modal -->
+  <div id="verification-modal" class="verification-modal hidden">
+    <div class="verification-card">
+      <div class="verification-header">
+        <h3>Verify Your Email</h3>
+        <p style="color: var(--muted); font-size: 13px;">Enter the 6-digit code sent to your new email</p>
+      </div>
+      
+      <div class="verification-code-input" id="code-inputs">
+        <input type="text" class="code-digit" maxlength="1" />
+        <input type="text" class="code-digit" maxlength="1" />
+        <input type="text" class="code-digit" maxlength="1" />
+        <input type="text" class="code-digit" maxlength="1" />
+        <input type="text" class="code-digit" maxlength="1" />
+        <input type="text" class="code-digit" maxlength="1" />
+      </div>
+
+      <div class="verification-actions">
+        <button id="verify-back" class="btn">Back</button>
+        <button id="verify-submit" class="btn primary">Verify</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reauth Modal -->
+  <div id="reauth-modal" class="modal hidden">
+    <div class="modal-card small glass">
+      <h3>Verify your password</h3>
+      <p>Please enter your current password to confirm account deletion.</p>
+      <input id="reauth-password" type="password" placeholder="Current password" />
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+        <button id="reauth-cancel" class="btn">Cancel</button>
+        <button id="reauth-confirm" class="btn danger">Confirm & Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">Celma - 2026</footer>
+
+  <!-- Firebase SDKs (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-messaging-compat.js"></script>
+
+  <script src="main.js"></script>
+</body>
+</html>
