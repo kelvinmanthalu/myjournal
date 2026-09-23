@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>404 — Page Not Found · MyJournal+</title>
+  <!-- ===== FAVICON & ICONS ===== -->
+
+<!-- Primary Favicon (SVG - Modern browsers) -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260525" />
+
+<!-- PNG Fallback (96x96 - Good for most uses) -->
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20260525" />
+
+<!-- Legacy ICO Fallback (Very old browsers) -->
+<link rel="shortcut icon" href="/favicon.ico?v=20260525" />
+
+<!-- Apple iOS Home Screen -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260525" />
+<meta name="apple-mobile-web-app-title" content="MyJournal+" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/site.webmanifest?v=20260525" />
+
+<!-- Theme Color (Browser Address Bar) -->
+<meta name="theme-color" content="#7b6cff" />
+
+  <!-- Google font (keeps visual style consistent with your site) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <meta name="robots" content="noindex,follow">
+
+  <style>
+    :root{
+      --bg-1: #081124;
+      --bg-2: #0b1220;
+      --glass: rgba(255,255,255,0.04);
+      --accent: #7b6cff;
+      --accent-2: #4dd3ff;
+      --muted: rgba(234,242,255,0.72);
+      --card-radius: 16px;
+      --shadow: 0 20px 60px rgba(2,6,23,0.6);
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 60%); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:28px;}
+    .card{
+      width:100%;max-width:1100px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--card-radius); padding:28px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03);
+      display:grid; grid-template-columns: 1fr 380px; gap:20px; align-items:center;
+    }
+    @media (max-width:960px){ .card{grid-template-columns:1fr;} }
+
+    .left{
+      padding-right:6px;
+    }
+    .code{
+      font-size:58px; font-weight:800; color:var(--accent-2);
+      margin:0 0 6px 0; letter-spacing:2px;
+    }
+    .title{ font-size:22px; margin:0 0 10px 0; color:#eaf2ff; font-weight:700; }
+    .desc{ color:var(--muted); margin:0 0 18px 0; line-height:1.5; }
+
+    /* decorative illustration */
+    .illus{ width:100%; max-width:560px; height:220px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(124,92,255,0.06), rgba(68,217,255,0.03)); border:1px solid rgba(255,255,255,0.02); }
+    .illus svg{ width:220px; height:160px; opacity:0.95; }
+
+    /* suggestions */
+    .help-list{ margin:16px 0 0 0; padding:0; list-style:none; display:grid; gap:8px; }
+    .help-list li{ display:flex; gap:12px; align-items:flex-start; color:var(--muted); font-size:14px; }
+    .dot{ min-width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#041025; font-weight:700; }
+
+    /* actions */
+    .actions{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{ padding:12px 16px; border-radius:10px; border:0; cursor:pointer; font-weight:700; color:#041025; background:linear-gradient(90deg,var(--accent),var(--accent-2)); }
+    .btn.ghost{ background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.04); }
+    .btn.secondary{ background: linear-gradient(90deg,#fff 0%, #f1f6ff 100%); color:#041025; box-shadow: 0 8px 24px rgba(124,92,255,0.08); }
+
+    /* right column: app promo & contact */
+    .right{ display:flex;flex-direction:column; gap:12px; align-items:stretch; }
+    .promo{ padding:16px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); display:flex; gap:12px; align-items:center; }
+    .promo .splash{ width:72px; height:72px; border-radius:14px; background:linear-gradient(180deg,var(--accent),var(--accent-2)); display:flex; align-items:center; justify-content:center; font-size:28px; color:#041025; font-weight:800; }
+    .promo h4{ margin:0; font-size:16px; color:var(--accent-2); }
+    .promo p{ margin:4px 0 0 0; color:var(--muted); font-size:13px; }
+
+    .ad-slot{ margin-top:8px; padding:12px; border-radius:12px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.03); text-align:center; color:var(--muted); font-size:13px; min-height:72px; display:flex; align-items:center; justify-content:center; }
+
+    .contact{ padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); text-align:left; color:var(--muted); }
+    .contact a{ color:var(--accent-2); text-decoration:none; font-weight:700; }
+
+    footer.small{ margin-top:12px; text-align:center; color:var(--muted); font-size:13px; }
+
+    /* subtle animations */
+    .card{ transform-origin:center; animation: entrance .6s cubic-bezier(.2,.9,.3,1); }
+    @keyframes entrance { from { transform: translateY(14px) scale(.995); opacity:0 } to { transform: none; opacity:1 } }
+
+    /* focus & accessibility */
+    .btn:focus, a.btn:focus { outline: 3px solid rgba(77,211,255,0.12); outline-offset:4px; }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="h1">
+      <div class="left">
+        <div class="code" id="h1">404</div>
+        <div class="title">Page not found — we couldn't find that page</div>
+        <div class="desc">
+          The page you tried to reach doesn't exist (or may have moved). Below are quick steps to help you get back on track — and a gentle reminder about MyJournal+, your private place to reflect and grow.
+        </div>
+
+        <div class="illus" aria-hidden="true">
+          <!-- Friendly SVG illustration -->
+          <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#7b6cff"/><stop offset="1" stop-color="#4dd3ff"/></linearGradient>
+            </defs>
+            <rect rx="16" width="600" height="400" fill="url(#g1)" opacity="0.06"/>
+            <g transform="translate(70,40)">
+              <rect x="0" y="0" width="340" height="220" rx="12" fill="#fff" opacity="0.06"/>
+              <g transform="translate(24,20)">
+                <circle cx="40" cy="40" r="36" fill="#fff" opacity="0.06"/>
+                <rect x="96" y="6" width="160" height="14" rx="6" fill="#fff" opacity="0.06"></rect>
+                <rect x="96" y="34" width="220" height="12" rx="6" fill="#fff" opacity="0.04"></rect>
+                <rect x="0" y="86" width="320" height="12" rx="6" fill="#fff" opacity="0.04"></rect>
+                <rect x="0" y="110" width="260" height="12" rx="6" fill="#fff" opacity="0.04"></rect>
+                <rect x="0" y="140" width="320" height="12" rx="6" fill="#fff" opacity="0.04"></rect>
+              </g>
+            </g>
+          </svg>
+        </div>
+<script src="https://pl29175184.effectivecpmnetwork.com/a6/14/1e/a6141eb3dffeaecc45fd7a33a6e07717.js"></script>
+
+        <ul class="help-list" aria-label="How to fix">
+          <li><div class="dot">1</div><div><strong>Check the URL</strong><div class="muted-small">Make sure the address is correct — a typo is often the cause.</div></div></li>
+          <li><div class="dot">2</div><div><strong>Try refreshing</strong><div class="muted-small">Click "Try again" below after a hard refresh (Ctrl/Cmd+R) to clear cached routes.</div></div></li>
+          <li><div class="dot">3</div><div><strong>Return home or search</strong><div class="muted-small">Use the home link or the app to find what you were looking for.</div></div></li>
+          <li><div class="dot">4</div><div><strong>Need help?</strong><div class="muted-small">Contact us and we'll investigate: <a href="mailto:techcelma@gmail.com">techcelma@gmail.com</a></div></div></li>
+        </ul>
+
+        <div class="actions" role="navigation" aria-label="Actions">
+          <button class="btn" id="tryBtn">Try again</button>
+          <a class="btn ghost" href="home">Take me home</a>
+          <a class="btn secondary" href="signup">Create a free account</a>
+        </div>
+
+        <footer class="small" aria-hidden="true">If this error persists, please reach out to support with the URL shown below.</footer>
+        <p class="muted-small" id="current-url" style="word-break:break-all;margin-top:10px"></p>
+      </div>
+
+      <aside class="right" aria-labelledby="promo-heading">
+        <div class="promo" role="region" aria-label="About MyJournal+">
+          <div class="splash">MJ+</div>
+          <div>
+            <h4 id="promo-heading">MyJournal+</h4>
+            <p>Private, simple journaling with mood tracking and secure vault features — available on web and Android.</p>
+            <div style="margin-top:8px;display:flex;gap:8px">
+              <a class="btn small" href="about">Learn more</a>
+              <a class="btn small ghost" href="https://www.appcreator24.com/app3925490-pv2y17" target="_blank" rel="noopener">Get Android</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="contact" role="region" aria-label="Contact support">
+          <strong>Report this issue</strong>
+          <p class="muted-small" style="margin-top:6px">Include this URL and a short description. We'll help restore access quickly.</p>
+          <p style="margin-top:8px"><a href="mailto:techcelma@gmail.com?subject=404%20Report">Contact support</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // Populate the current URL to help diagnostics
+    (function(){
+      const out = document.getElementById('current-url');
+      try { out.textContent = 'URL: ' + window.location.href; } catch(e) { out.textContent = ''; }
+      // Try again button does a safe reload
+      document.getElementById('tryBtn').addEventListener('click', () => {
+        // soft reload first (uses cache), then hard reload
+        try { location.reload(); } catch(e) { location.href = 'index'; }
+      });
+
+      // Ad injection placeholder: reuse your ads-loader if available
+      try {
+        if (window.loadAdUnit && typeof window.loadAdUnit === 'function') {
+          loadAdUnit({ adClient: 'ca-pub-3124459433123264', adSlot: '9411019649', containerId: 'ad-404' });
+        } else {
+          // show minimal text
+          const a = document.getElementById('ad-404');
+          a.textContent = 'Discover MyJournal+: simple private journaling — Learn more on the home page.';
+        }
+      } catch(e) {
+        // fallback
+      }
+    })();
+  </script>
+  <script src="js/pwa-install.js"></script>
+</body>
+</html>
